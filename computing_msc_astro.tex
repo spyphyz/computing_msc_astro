@@ -1,0 +1,119 @@
+\documentclass{article}
+%sets paragraph indent for whole document
+\setlength{\parindent}{0pt}
+%gap between paragraphs
+\setlength{\parskip}{1em}
+%line spacing (1.3 is equivalent to one and a half spacing)
+\renewcommand{\baselinestretch}{1.3}
+\usepackage[english]{babel}
+
+\usepackage{xcolor}
+\definecolor{light-gray}{gray}{0.95}
+\newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Python for Astrophysics}
+\author{Dr Simon P Young}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Notes for the LJMU MSc Astrophysics course (2022) to get you started on a Python journey of discovery. This is the very basics - there are truly many rabbit holes to descend down with this sort of thing. 
+
+A note of caution. You can do some real damage to your computer by using the Terminal in your computer, although you'd have to be pretty unlucky. I take no responsibility for bricking your computer. As always, back up everything. 
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+
+\section{Topics}
+The aim of this document is to try and present a way to get started with these topics as quickly as possible, with relevant examples. I'm not a 'Hello World' kind of learner - I'll present you with some code here, that you can copy and modify, that actually does some useful things for us as astrophysicists.If you can download applications, and copy and paste, you can create a Python 'programme'. 
+
+There are thousands of ways of skinning a cat when it comes to setting up to write Python code - this is the way I did it!
+
+I'll cover the following:
+\begin{itemize}
+\item Getting a package manager (Conda) on your computer
+\item Getting Jupyter Notebooks for creating your projects
+\item Using the command line interface (CLI)/Terminal
+\item Setting up your first project using Jupyter Notebook
+\item Astropy package and how to use it for some simple things
+
+\end{itemize}
+
+\section{Package Manager - Conda}
+The one I use is called Conda - it's FREE, as in no monetary cost. It is a collection of packages, e.g. scientific computation, workbooks (like Excel), graphics, that you can use as required in any programme that you write. 
+
+If you're happy using the command line interface (CLI)/Terminal, you can get it here - \url{https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html}. If you do it this way, don't forget to close the Terminal then re-open it to allow you to start using the version of Conda you downloaded (Anaconda or Miniconda).  
+
+If you don't know what the CLI is, you can go for the graphical interface download option here - \url{https://docs.continuum.io/anaconda/install/}
+
+If you know what packages you are going to use, you can download Miniconda and load packages in individually. If you're not sure yet, just download the whole Anaconda collection of packages.
+
+\section{Jupyter Notebook}
+I use this to enter all the code that makes up a programme in Python. As well as the code, you can leave free text notes to remind you or others of what your code does. 
+
+The good news is if you downloaded the full set of packages with Anaconda, it has Jupyter Notebook already installed. If you use Miniconda, then instruction for downloading it using the CLI are here - \url{https://jupyter.org/install} (using the conda-forge repository of packages).
+
+Alternatively, you can access a browser-based version of Jupyter Notebook here - \url{https://jupyter.org/try}. I don't know much about this... sorry. I also don't know what the difference is between Jupyter Notebook and JupyterLab - it may well be an improvement! 
+
+
+
+\section{Using the Command Line}
+So, now is the time to get used to using this. It is an app on your computer that lets you input direct text commands to the computer. It's exceedingly powerful, but you don't need to know many commands to get going. The following works for MacOS (and Linux I would've thought) - the Windows commands will be similar, but you may need to ask someone else how to do this on a PC. 
+
+On MacOS open Terminal.
+
+Type \code{conda list} (then press enter/return)
+
+If you've downloaded Anaconda or Miniconda successfully then you should see a list of package names scrolling down. If it doesn't work, close Terminal, re-open, and try again.
+
+Now try \code{conda update conda} to make sure you're up to date. You will have to enter \code{y} (for yes) when propmpted. 
+
+Now type \code{jupyter notebook}
+
+This should open up the notebook in your browser, and allow you to use the browser for further code writing. 
+
+\section{Setting Up Your First Notebook}
+
+
+\section{Astropy}
+
+Here is how to install if you didn't download the full Anaconda package (which has Astropy already) - \url{https://docs.astropy.org/en/stable/install.html}. Scroll down to the bit about to install using conda. 
+
+
+\section{Further Examples}
+
+\section{Advanced Coding}
+
+Prof David Kipping (the 'exomoon guy' from the Cool Worlds Lab, Columbia University) tweeted a request for information on astro python courses... here's a list of the replies he got:
+
+\url{https://github.com/howardisaacson/Intro-to-Astro-2021}
+
+\url{https://github.com/semaphoreP/codeastro}
+
+\url{https://www.astrosprint2021.com/}
+
+\url{https://prappleizer.github.io/index.html}
+
+\url{https://www.youtube.com/playlist?list=PLbJEQKXFZR1uATg2dyyKUDFnqtTzkUdZv}
+
+\url{https://zingale.github.io/comp_astro_tutorial/intro.html}
+
+\url{https://github.com/pmelchior/usrp-sciprog}
+
+\url{https://www.ocf.berkeley.edu/~ipasha/python/}
+
+\url{https://github.com/jbchampagne/pythontutorials/tree/master/workshop_2021}
+
+\end{document}
