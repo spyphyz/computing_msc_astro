@@ -11,6 +11,8 @@
 \definecolor{light-gray}{gray}{0.95}
 \newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
 
+\usepackage{minted}
+
 % Set page size and margins
 % Replace `letterpaper' with`a4paper' for UK/EU standard size
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
@@ -27,7 +29,7 @@
 \maketitle
 
 \begin{abstract}
-Notes for the LJMU MSc Astrophysics course (2022) to get you started on a Python journey of discovery. This is the very basics - there are truly many rabbit holes to descend down with this sort of thing. 
+Notes for the LJMU MSc Astrophysics course (2022) to get you started on a Python journey of discovery. This is the very basics - there are plenty of rabbit holes to descend down. 
 
 A note of caution. You can do some real damage to your computer by using the Terminal in your computer, although you'd have to be pretty unlucky. I take no responsibility for bricking your computer. As always, back up everything. 
 \end{abstract}
@@ -78,21 +80,64 @@ Type \code{conda list} (then press enter/return)
 
 If you've downloaded Anaconda or Miniconda successfully then you should see a list of package names scrolling down. If it doesn't work, close Terminal, re-open, and try again.
 
-Now try \code{conda update conda} to make sure you're up to date. You will have to enter \code{y} (for yes) when propmpted. 
+Now try \code{conda update conda} to make sure you're up to date. You will have to enter \code{y} (for yes) when prompted. 
 
 Now type \code{jupyter notebook}
 
 This should open up the notebook in your browser, and allow you to use the browser for further code writing. 
 
-\section{Setting Up Your First Notebook}
+\section{Other Packages}
+If you've installed Miniconda you'll have to individually download some packages. In Terminal, paste this:
 
+\code{conda install numpy matplotlib pandas scipy}
+
+\section{Your First Notebook}
+In your browser's Jupyter Notebook, go to File - New Notebook - Python3
+
+Try pasting this into your newly opened Notebook:
+
+\begin{minted}[bgcolor=light-gray]{python}
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.arange(0, 8*np.pi, 0.1)   # start,stop,step
+y = np.cos(x)
+plt.plot(x,y)
+plt.show()
+\end{minted}
+then hit the Run button. 
+
+If all has gone to plan, a cosine graph should magically appear. 
 
 \section{Astropy}
 
-Here is how to install if you didn't download the full Anaconda package (which has Astropy already) - \url{https://docs.astropy.org/en/stable/install.html}. Scroll down to the bit about to install using conda. 
+Astropy is a collection of useful things for astro. Here is how to install it if you didn't download the full Anaconda package (which has Astropy already) - \url{https://docs.astropy.org/en/stable/install.html}. Scroll down to the bit about how to install using conda. 
 
+Try pasting and running this in a Jupyter Notebook:
 
-\section{Further Examples}
+\begin{minted}[bgcolor=light-gray]{python}
+# Kepler's 3rd law gives semi-major axis (a)
+# from period (P) and stellar mass (M_star)
+from astropy import units as u
+from astropy import constants as const
+import numpy as np
+
+# Pd = period in days; Ps = period in seconds
+# ENTER a value for planet's orbital period (in days)
+Pd = 365.25 * u.d 
+Ps = (Pd / u.d) * (24 * 60 * 60 * u.s)
+
+# ENTER a value for M_s (mass of star) in solar masses
+M_star = 1.00 * const.M_sun 
+k = (4 * np.pi**2)/(const.G * M_star)
+
+# a = the cube root of the period (in seconds) squared
+a = (Ps**2/k)**(1/3) 
+
+# semi-major axis in astronomical units (AU)
+a/const.au * u.au
+\end{minted}
+If everything is set up ok, when you run this code the output should be:
+\code{0.99998741 AU}
 
 \section{Advanced Coding}
 
